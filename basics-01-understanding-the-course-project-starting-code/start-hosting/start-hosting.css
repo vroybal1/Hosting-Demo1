@@ -1,0 +1,90 @@
+main {
+  text-align: center;
+}
+
+.abq {
+  background: url("../images/ABQ.jpg") center / cover;
+  position: fixed;
+  height: 100vh;
+  top: -0.5rem;
+  width: 100vw;
+  z-index: -1;
+}
+
+.signup-form {
+  display: grid;
+  width: 100%;
+  margin: auto;
+  grid-template-columns: 10rem auto;
+  grid-auto-rows: 2rem;
+  grid-gap: 2rem 0;
+  text-align: start;
+  background: var(--back-color);
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+label,
+input,
+select {
+  width: 100%;
+  font: inherit;
+}
+
+input,
+select {
+  border: 1px solid green;
+  border-radius: 6px;
+}
+
+input:focus:not([type="checkbox"]),
+select:focus:not([type="checkbox"]) {
+  background: var(--main-color);
+}
+
+.terms {
+  grid-column: span 2;
+  justify-self: start;
+}
+
+[type="checkbox"] {
+  margin: 0;
+  background: white;
+  height: 0.95rem;
+  width: 0.95rem;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+[type="checkbox"]:checked {
+  background: green;
+}
+
+[name="title"],
+[for="title"] {
+  grid-column: span 2;
+}
+
+label {
+  font-weight: bold;
+  font-size: 1.4rem;
+}
+
+button {
+  font: inherit;
+  color: var(--main-color);
+  background: gold;
+  border-radius: 8px;
+  font-weight: bold;
+  border: 2px solid yellow;
+  font-size: 1.2rem;
+  text-shadow: 8px 8px 8px 8px rgba(252, 9, 9, 0.884);
+  cursor: pointer;
+}
+
+@media (min-width: 40rem) {
+  .signup-form {
+    width: 40%;
+    min-width: 38rem;
+  }
+}

@@ -1,0 +1,228 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,700");
+@import url("https://fonts.googleapis.com/css?family=Anton");
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --nav-font: gold;
+  --main-color: #2ddf5c;
+  --back-color: #ff6262dc;
+}
+
+html {
+  height: 100vh;
+}
+
+body {
+  overflow-x: hidden;
+  font-family: Montserrat, sans-serif;
+  height: 100%;
+  margin: 0;
+  display: grid;
+  grid-template-rows: 3.5rem auto fit-content(8rem);
+  grid-template-areas:
+    "h"
+    "m"
+    "f";
+}
+
+main {
+  grid-area: m;
+}
+
+.backdrop {
+  background: rgba(0, 0, 0, 0.3);
+  position: fixed;
+  display: none;
+  top: 0;
+  z-index: 101;
+  height: 100vh;
+  width: 100vw;
+}
+.section-title {
+  color: var(--main-color);
+  text-align: center;
+}
+
+/* -------MAIN HEADER--------- */
+
+.main-header {
+  background: var(--nav-font);
+  /* display: fixed; */
+  padding: 0 0.5rem;
+  display: flex;
+  grid-area: h;
+  position: fixed;
+  z-index: 100;
+  width: 100vw;
+}
+.main-header__items {
+  display: flex;
+  align-items: center;
+}
+
+.main-header a {
+  align-self: center;
+}
+.main-header img {
+  height: 2.5rem;
+}
+
+@media (min-width: 40rem) {
+  .main-header {
+    justify-content: space-between;
+  }
+}
+
+/* ---------Button ------------ */
+
+.toggle-button {
+  height: 3.6rem;
+  width: 3.6rem;
+  align-items: center;
+  padding-top: 0.2rem;
+  cursor: pointer;
+}
+
+.toggle-button__bar {
+  background: black;
+  height: 0.3rem;
+  width: 3.2rem;
+  margin: 0.5rem 0;
+  border-radius: 2px;
+  display: block;
+}
+
+@media (min-width: 40rem) {
+  .toggle-button {
+    display: none;
+  }
+}
+
+/* -----------------------------------Modal ---------- */
+
+.mobile-nav {
+  transform: translateX(-100%);
+  background: white;
+  position: fixed;
+  z-index: 101;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  transition: transform 300ms ease-out;
+}
+
+.mobile-items {
+  list-style: none;
+}
+
+.mobile-item a {
+  text-decoration: none;
+  color: var(--back-color);
+}
+
+/* ----------------------- NAV BAR --------------------------*/
+.nav {
+  display: none;
+}
+.nav-items {
+  display: flex;
+  flex-flow: row nowrap;
+  list-style: none;
+}
+
+.nav-item a {
+  text-decoration: none;
+  margin: 0 1rem;
+  font-weight: bold;
+  color: var(--back-color);
+  padding: 0.2rem 0.8rem;
+}
+
+.nav-item a:hover,
+.nav-item a:active {
+  color: white;
+  border-bottom: 4px solid white;
+}
+
+.nav-item__cta1 {
+  animation: wiggle 300ms 3s 8 forwards;
+}
+
+.nav-item__cta a {
+  background: var(--back-color);
+  border: 1px solid var(--back-color);
+  color: white;
+  border-radius: 8px;
+}
+
+@keyframes wiggle {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(10px);
+  }
+}
+
+.nav-item__cta a:hover,
+.nav-item__cta a:active {
+  color: var(--back-color);
+  background: white;
+  border-bottom: 1px solid var(--back-color);
+}
+@media (min-width: 40rem) {
+  .nav {
+    display: block;
+  }
+}
+/*-------------- MAIN FOOTER ------------------------ */
+
+.main-footer {
+  background: black;
+  color: white;
+  height: 8rem;
+  margin-top: 4rem;
+
+  grid-area: f;
+}
+
+.footer-items {
+  margin: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.footer-item {
+  margin: 1rem 0;
+}
+
+.footer-item:hover,
+.footer-item:active {
+  color: gold;
+}
+
+@media (min-width: 40rem) {
+  .footer-items {
+    height: 100%;
+    flex-direction: row;
+    margin: 0;
+  }
+  .footer-item {
+    margin: 0 1rem;
+  }
+}
+
+.open {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
